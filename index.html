@@ -261,6 +261,10 @@
     <script>
       // Fade background images
       (function () {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          return;
+        }
+
         var backgroundImages = document.querySelectorAll(
           "[data-gallery-image]"
         );

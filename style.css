@@ -151,6 +151,12 @@ body {
   opacity: 1;
 }
 
+@media (prefers-reduced-motion) {
+  .background img {
+    transition: none
+  }
+}
+
 /* ---------- Responsive (mostly legacy) ---------- */
 
 /* Desktop */
