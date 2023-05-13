@@ -1,29 +1,28 @@
 /* ---------- Typo ---------- */
 
+body {
+  font-family: Courier, monospace;
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.275;
+}
+
 h1,
 h2,
 p {
-  font-family: Courier, monospace;
-  font-weight: 300;
+  font-size: 1.125rem;
+  font-weight: inherit;
   margin: 1em 0;
 }
 
-.typonoline {
-  padding-top: 30px;
-  text-align: center;
-  margin: 0px auto;
-  max-width: 960px;
-  width: 80%;
-  z-index: 100;
-}
-
-.titlenospacing {
+h2:not(:first-child) {
   margin-bottom: -1em;
 }
 
 a,
-a:active,
-a:hover {
+a:hover,
+a:focus,
+a:active {
   color: #ffffff;
   text-decoration: underline;
 }
@@ -36,17 +35,18 @@ body {
 }
 
 .logo {
-  margin: 0px auto;
-  z-index: 99;
   position: relative;
+  z-index: 1;
+  margin: 0 auto;
   padding-top: 10%;
-  width: 80%;
+  width: 17.5rem;
+  max-width: 80%;
 }
 
-.content {
+.main {
   position: relative;
 }
-.content::before {
+.main::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -55,12 +55,18 @@ body {
 .section {
   position: relative;
 }
-
-.image {
-  margin: 0px auto;
+.content {
+  padding-top: 1.875rem;
+  text-align: center;
+  margin: 0 auto;
+  max-width: 60rem;
   width: 80%;
 }
 
+.image {
+  margin: 0 auto;
+  max-width: 40rem
+}
 .image img {
   display: block;
   width: 100%;
@@ -75,13 +81,15 @@ body {
 
 .btn {
   position: fixed;
-  left: 0.75rem;
-  bottom: 0.75rem;
+  z-index: 1;
+  left: 0.75em;
+  bottom: 0.75em;
+  font-size: 1rem;
   background: transparent;
   border: 0;
   padding: 0;
-  width: 2.875rem;
-  height: 2.875rem;
+  width: 2.875em;
+  height: 2.875em;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -90,14 +98,14 @@ body {
 }
 .btn svg {
   position: absolute;
-  inset: 0.5rem;
+  inset: 0.5em;
   fill: white;
-  width: calc(100% - 1rem);
+  width: calc(100% - 1em);
 }
 
 .btn--nav {
   left: auto;
-  right: 0.75rem;
+  right: 0.75em;
   z-index: 1;
 }
 .btn--nav[aria-expanded="false"] svg:first-child,
@@ -106,29 +114,29 @@ body {
 }
 
 .btn--contact {
-  bottom: 3.625rem;
+  bottom: 3.625em;
 }
 .btn--contact:not(:focus-visible) {
   opacity: 0;
 }
 
 .btn--music {
-  left: 3.625rem;
+  left: 3.625em;
 }
 .btn--music svg {
-  inset: 0.75rem;
-  width: calc(100% - 1.5rem);
+  inset: 0.75em;
+  width: calc(100% - 1.5em);
 }
 
 .btn--menu {
-  left: 6.5rem;
+  left: 6.5em;
 }
 
 .btn:not(.btn--nav)[aria-expanded="true"]::after {
   content: "";
   position: absolute;
-  inset: 0 0.75rem 0.5rem 0.75rem;
-  border-bottom: 2px solid white;
+  inset: 0 0.75em 0.4em 0.75em;
+  border-bottom: 0.1rem solid white;
 }
 
 /* ---------- Background ---------- */
@@ -153,128 +161,32 @@ body {
 
 @media (prefers-reduced-motion) {
   .background img {
-    transition: none
+    transition: none;
   }
 }
 
-/* ---------- Responsive (mostly legacy) ---------- */
+/* ---------- Responsive ---------- */
 
-/* Desktop */
-@media (min-width: 1025px) {
+/* Wide */
+@media (min-width: 64rem) {
   .logo {
-    padding-top: 10%;
-    width: 500px;
-  }
-
-  .image {
-    width: 500px;
+    width: 31.25rem;
   }
 
   h1,
   h2,
   p {
-    font-size: 25px;
-    line-height: 32px;
-    color: #fff;
+    font-size: 1.5625rem;
   }
 
   .btn {
-    left: 1rem;
-    bottom: 1rem;
-    width: 3.125rem;
-    height: 3.125rem;
-  }
-  .btn--nav {
-    left: auto;
-    right: 1rem;
-  }
-  .btn--contact {
-    bottom: 4.125rem;
-  }
-  .btn--music {
-    left: 4.125rem;
-  }
-  .btn--menu {
-    left: 7.25rem;
+    font-size: 1.125rem;
   }
 }
 
-/* Tablet quer */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-  .logo {
-    padding-top: 10%;
-    width: 500px;
-  }
-
-  .image {
-    width: 500px;
-  }
-
-  h1,
-  h2,
-  p {
-    font-size: 25px;
-    line-height: 32px;
-    color: #fff;
-  }
-}
-
-/* Tablet hoch */
-@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-  .logo {
-    padding-top: 30%;
-    width: 500px;
-  }
-
-  .image {
-    width: 500px;
-  }
-
-  h1,
-  h2,
-  p {
-    font-size: 25px;
-    line-height: 32px;
-    color: #fff;
-  }
-}
-
-/* Phone quer */
-@media (max-width: 767px) and (orientation: landscape) {
+/* Short */
+@media (max-height: 40rem) {
   .logo {
     padding-top: 5%;
-    width: 300px;
-  }
-
-  .image {
-    width: 300px;
-  }
-
-  h1,
-  h2,
-  p {
-    font-size: 20px;
-    line-height: 25px;
-    color: #fff;
-  }
-}
-
-/* Phone hoch */
-@media (max-width: 767px) and (orientation: portrait) {
-  .logo {
-    padding-top: 10%;
-    width: 280px;
-  }
-
-  .image {
-    width: 280px;
-  }
-
-  h1,
-  h2,
-  p {
-    font-size: 18px;
-    line-height: 23px;
-    color: #fff;
   }
 }
