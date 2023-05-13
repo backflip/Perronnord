@@ -1,0 +1,271 @@
+/* ---------- Typo ---------- */
+
+h1,
+h2,
+p {
+  font-family: Courier, monospace;
+  font-weight: 300;
+  margin: 1em 0;
+}
+
+.typonoline {
+  padding-top: 30px;
+  text-align: center;
+  margin: 0px auto;
+  max-width: 960px;
+  width: 80%;
+  z-index: 100;
+}
+
+.titlenospacing {
+  margin-bottom: -1em;
+}
+
+a,
+a:active,
+a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ---------- Document ----------- */
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+.logo {
+  margin: 0px auto;
+  z-index: 99;
+  position: relative;
+  padding-top: 10%;
+  width: 80%;
+}
+
+.content {
+  position: relative;
+}
+.content::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+.section {
+  position: relative;
+}
+
+.image {
+  margin: 0px auto;
+  width: 80%;
+}
+
+.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Navigation ---------- */
+
+[aria-expanded="false"] + * {
+  display: none;
+}
+
+.btn {
+  position: fixed;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  width: 2.875rem;
+  height: 2.875rem;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 100%;
+}
+.btn svg {
+  position: absolute;
+  inset: 0.5rem;
+  fill: white;
+  width: calc(100% - 1rem);
+}
+
+.btn--nav {
+  left: auto;
+  right: 0.75rem;
+  z-index: 1;
+}
+.btn--nav[aria-expanded="false"] svg:first-child,
+.btn--nav[aria-expanded="true"] svg:last-child {
+  display: none;
+}
+
+.btn--contact {
+  bottom: 3.625rem;
+}
+.btn--contact:not(:focus-visible) {
+  opacity: 0;
+}
+
+.btn--music {
+  left: 3.625rem;
+}
+.btn--music svg {
+  inset: 0.75rem;
+  width: calc(100% - 1.5rem);
+}
+
+.btn--menu {
+  left: 6.5rem;
+}
+
+.btn:not(.btn--nav)[aria-expanded="true"]::after {
+  content: "";
+  position: absolute;
+  inset: 0 0.75rem 0.5rem 0.75rem;
+  border-bottom: 2px solid white;
+}
+
+/* ---------- Background ---------- */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+.background img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 2s linear;
+}
+.background img[aria-current="true"] {
+  opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .logo {
+    padding-top: 10%;
+    width: 500px;
+  }
+
+  .image {
+    width: 500px;
+  }
+
+  h1,
+  h2,
+  p {
+    font-size: 25px;
+    line-height: 32px;
+    color: #fff;
+  }
+
+  .btn {
+    left: 1rem;
+    bottom: 1rem;
+    width: 3.125rem;
+    height: 3.125rem;
+  }
+  .btn--nav {
+    left: auto;
+    right: 1rem;
+  }
+  .btn--music {
+    left: 4.125rem;
+  }
+  .btn--menu {
+    left: 7.25rem;
+  }
+}
+
+/* Tablet quer */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .logo {
+    padding-top: 10%;
+    width: 500px;
+  }
+
+  .image {
+    width: 500px;
+  }
+
+  h1,
+  h2,
+  p {
+    font-size: 25px;
+    line-height: 32px;
+    color: #fff;
+  }
+}
+
+/* Tablet hoch */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .logo {
+    padding-top: 30%;
+    width: 500px;
+  }
+
+  .image {
+    width: 500px;
+  }
+
+  h1,
+  h2,
+  p {
+    font-size: 25px;
+    line-height: 32px;
+    color: #fff;
+  }
+}
+
+/* Phone quer */
+@media (max-width: 767px) and (orientation: landscape) {
+  .logo {
+    padding-top: 5%;
+    width: 300px;
+  }
+
+  .image {
+    width: 300px;
+  }
+
+  h1,
+  h2,
+  p {
+    font-size: 20px;
+    line-height: 25px;
+    color: #fff;
+  }
+}
+
+/* Phone hoch */
+@media (max-width: 767px) and (orientation: portrait) {
+  .logo {
+    padding-top: 10%;
+    width: 280px;
+  }
+
+  .image {
+    width: 280px;
+  }
+
+  h1,
+  h2,
+  p {
+    font-size: 18px;
+    line-height: 23px;
+    color: #fff;
+  }
+}
