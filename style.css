@@ -192,7 +192,7 @@ body {
 }
 
 /* Short */
-@media (max-height: 40rem) {
+@media (max-height: 40rem) and (min-aspect-ratio: 3/2) {
   body {
     padding-top: 5%;
   }
