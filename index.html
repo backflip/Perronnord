@@ -246,6 +246,16 @@
             if (!targetExpand) {
               buttonGroup[0].setAttribute("aria-expanded", "true");
             }
+          } else if (!targetExpand) {
+            // Reset groups
+            Object.values(buttonGroups).forEach(function (buttonGroup) {
+              buttonGroup.forEach(function (button, index) {
+                button.setAttribute(
+                  "aria-expanded",
+                  index === 0 ? "true" : "false"
+                );
+              });
+            });
           }
 
           targetButton.setAttribute("aria-expanded", targetExpand);
