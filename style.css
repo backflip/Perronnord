@@ -107,6 +107,9 @@ body {
   fill: white;
   width: calc(100% - 1em);
 }
+.btn:not(.btn--nav, .btn--contact)[aria-expanded="false"] {
+  opacity: 0.7;
+}
 
 .btn--nav {
   left: auto;
@@ -135,13 +138,6 @@ body {
 
 .btn--menu {
   left: 6.5em;
-}
-
-.btn:not(.btn--nav)[aria-expanded="true"]::after {
-  content: "";
-  position: absolute;
-  inset: 0 0.75em 0.4em 0.75em;
-  border-bottom: 0.1rem solid white;
 }
 
 /* ---------- Background ---------- */
